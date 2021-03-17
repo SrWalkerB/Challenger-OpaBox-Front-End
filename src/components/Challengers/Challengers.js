@@ -1,14 +1,13 @@
-
 import { useState } from "react";
+import { API_Ordena_list } from "../../services/API";
 import "./style.css";
 
-console.clear();
 function Challenger(){
 
     const [salaN, setSalaN] = useState("");
     const [salaS, setSalaS] = useState("");
 
-    function Sort(){
+    async function Sort(){
 
         const input_salaN_element = document.querySelector('#input-sala-n');
         const input_salaS_element = document.querySelector('#input-sala-s');
@@ -28,9 +27,17 @@ function Challenger(){
             data_salaS.push(salaS_values[x]);
         }
 
+        const result = await API_Ordena_list.post('/', {
+            lista: {
+                salaN: data_salaN,
+                salaS: data_salaS
+            }
+        }).then(resp => {
+            return resp.data;
+        })
 
-        console.log(data_salaN);
-        console.log(data_salaS);
+        setSalaN(<h3 className="result-element-element">SalaN: {result.salaN}</h3>)
+        setSalaS(<h3 className="result-element-element">SalaS: {result.salaS}</h3>)
     }
 
     return (
@@ -52,8 +59,8 @@ function Challenger(){
                 </div>
                 
                 <div >
-                    <h3>Teste</h3>
-                    <h3>Teste</h3>
+                    {salaN}
+                    {salaS}
                 </div>
 
                 <button onClick={() => Sort()} id="submit-challenger-01">Submit</button>

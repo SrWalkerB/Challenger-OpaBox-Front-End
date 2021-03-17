@@ -1,14 +1,14 @@
 
 .container-challengers{
-    background-color: tan;
+    background-color: whitesmoke;
     text-align: center;
     
-    padding: 15px;   
+    padding: 15px;
+    
+    width: 50vw;
 }
 
 .challengers-elements{
-    background-color: tomato;
-
     padding: 15px;
 }
 
@@ -21,8 +21,6 @@
 }
 
 .elements-input{
-    background-color: teal;
-
     padding: 15px;
 }
 
