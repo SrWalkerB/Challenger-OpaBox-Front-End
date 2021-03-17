@@ -1,0 +1,15 @@
+
+.container-header{
+    background-color: #fd6503;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 25px;
+}
+
+.container-header img{
+    width: 20vw;
+}
